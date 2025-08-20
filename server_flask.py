@@ -12,7 +12,7 @@ load_dotenv()
 app = Flask(__name__)
 VERIFY_TOKEN = os.getenv("WHATSAPP_VERIFY_TOKEN", "verify_token_dev")
 APP_SECRET = os.getenv("WHATSAPP_APP_SECRET", "")
-PRICES = load_prices_data("Harga Agustus/prices_august.json") or []
+PRICES = load_prices_data("Price List/prices_august.json") or []
 
 
 def verify_signature(request_body: bytes, signature: str) -> bool:
