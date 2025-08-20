@@ -17,7 +17,6 @@ Kemudian, rekomendasikan perawatan atau paket perawatan yang paling sesuai dari 
 Jelaskan perawatan yang direkomendasikan secara detail, termasuk nama perawatan, deskripsi, dan harga.
 Jika pasien menanyakan tentang perawatan tertentu, berikan penjelasan lengkap tentang perawatan tersebut (nama, deskripsi, harga, dan untuk apa perawatan itu terbaik).
 Jika keluhan pasien tidak mengindikasikan tindakan spesifik, berikan informasi umum mengenai perawatan kulit atau sarankan konsultasi lebih lanjut.
-Pastikan untuk tidak menggunakan banyak 'if-else' dalam respons Anda; biarkan LLM secara generik dan autentik memilih rekomendasi terbaik berdasarkan data.
 Jaga agar respons Anda tetap ringkas, antara 3 hingga 5 kalimat, kecuali jika detail perawatan lengkap diminta.
 """
 

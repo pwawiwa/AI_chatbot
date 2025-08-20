@@ -1,6 +1,7 @@
 .env
 credentials/
-Harga Agustus/prices_august.json
 __pycache__/
 *.pyc
 *.log
+.venv/
+Harga Agustus/prices_august.json
