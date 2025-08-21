@@ -3,7 +3,6 @@ import hmac
 import hashlib
 import datetime
 from flask import Flask, request, jsonify, Response
-from dotenv import load_dotenv
 from llm_manager import get_llm_response, moderate_content
 from data_loader import load_prices_data
 from whatsapp_api import send_text_message

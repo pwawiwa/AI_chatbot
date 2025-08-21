@@ -3,8 +3,6 @@
 import os
 import openai
 
-
-
 client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def get_llm_response(messages, prices_data, model="gpt-4o-mini", temperature=0.7):
