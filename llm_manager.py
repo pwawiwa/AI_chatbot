@@ -3,10 +3,9 @@
 import os
 import openai
 
-api_key = os.getenv("OPENAI_API_KEY")
-print(f"Loaded OpenAI API Key: {api_key}")
 
-client = openai.OpenAI(api_key=api_key)
+
+client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def get_llm_response(messages, prices_data, model="gpt-4o-mini", temperature=0.7):
     """Generates a response from the LLM based on the given conversation history.
