@@ -1,1 +1,1 @@
-web: python server_flask.py
+web: python -u server_flask.py

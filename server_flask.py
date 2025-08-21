@@ -1,6 +1,7 @@
 import os
 import hmac
 import hashlib
+import datetime
 from flask import Flask, request, jsonify, Response
 from dotenv import load_dotenv
 from llm_manager import get_llm_response, moderate_content
@@ -28,7 +29,17 @@ def verify_signature(request_body: bytes, signature: str) -> bool:
 
 @app.route("/", methods=["GET"])
 def health():
-    return jsonify({"status": "ok"})
+    try:
+        return jsonify({
+            "status": "ok",
+            "message": "WhatsApp Bot Almeera is running",
+            "timestamp": str(datetime.datetime.now())
+        })
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 500
 
 
 @app.route("/webhook", methods=["GET"])
@@ -102,4 +113,6 @@ if __name__ == "__main__":
     port = int(os.getenv("PORT", 8080))
     # Production settings
     debug_mode = os.getenv("FLASK_DEBUG", "False").lower() == "true"
+    print(f"🚀 Starting server on port {port}")
+    print(f"📡 Server will be available at: http://0.0.0.0:{port}")
     app.run(host="0.0.0.0", port=port, debug=debug_mode)
