@@ -13,7 +13,15 @@ load_dotenv()
 app = Flask(__name__)
 VERIFY_TOKEN = os.getenv("WHATSAPP_VERIFY_TOKEN", "verify_token_dev")
 APP_SECRET = os.getenv("WHATSAPP_APP_SECRET", "")
-PRICES = load_prices_data("Harga Agustus/prices_august.json") or []
+# Load prices data with fallback
+try:
+    PRICES = load_prices_data("Harga Agustus/prices_august.json")
+    if not PRICES:
+        print("⚠️  No prices data loaded, using empty list")
+        PRICES = []
+except Exception as e:
+    print(f"❌ Error loading prices data: {e}")
+    PRICES = []
 
 
 def verify_signature(request_body: bytes, signature: str) -> bool:

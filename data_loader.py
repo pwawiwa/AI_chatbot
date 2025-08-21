@@ -4,12 +4,16 @@ import json
 
 def load_prices_data(file_path):
     try:
-        with open(file_path, 'r') as f:
+        with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        return data
+            print(f"✅ Loaded {len(data)} treatments from {file_path}")
+            return data
     except FileNotFoundError:
-        print(f"Error: The file {file_path} was not found.")
-        return None
-    except json.JSONDecodeError:
-        print(f"Error: Could not decode JSON from {file_path}.")
-        return None
+        print(f"⚠️  Warning: {file_path} not found, using empty list")
+        return []
+    except json.JSONDecodeError as e:
+        print(f"❌ Error decoding JSON from {file_path}: {e}")
+        return []
+    except Exception as e:
+        print(f"❌ Error loading {file_path}: {e}")
+        return []
