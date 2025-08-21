@@ -8,7 +8,6 @@ from llm_manager import get_llm_response, moderate_content
 from data_loader import load_prices_data
 from whatsapp_api import send_text_message
 
-load_dotenv()
 
 app = Flask(__name__)
 VERIFY_TOKEN = os.getenv("WHATSAPP_VERIFY_TOKEN", "verify_token_dev")
