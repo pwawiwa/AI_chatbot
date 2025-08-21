@@ -1,8 +1,7 @@
 # llm_manager.py
 
 import os
-from dotenv import load_dotenv
-
+import openai
 
 api_key = os.getenv("OPENAI_API_KEY")
 print(f"Loaded OpenAI API Key: {api_key}")
