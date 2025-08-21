@@ -12,7 +12,7 @@ load_dotenv()
 app = Flask(__name__)
 VERIFY_TOKEN = os.getenv("WHATSAPP_VERIFY_TOKEN", "verify_token_dev")
 APP_SECRET = os.getenv("WHATSAPP_APP_SECRET", "")
-PRICES = load_prices_data("Price List/prices_august.json") or []
+PRICES = load_prices_data("Harga Agustus/prices_august.json") or []
 
 
 def verify_signature(request_body: bytes, signature: str) -> bool:
@@ -100,4 +100,6 @@ def webhook_receive():
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8080))
-    app.run(host="0.0.0.0", port=port)
+    # Production settings
+    debug_mode = os.getenv("FLASK_DEBUG", "False").lower() == "true"
+    app.run(host="0.0.0.0", port=port, debug=debug_mode)

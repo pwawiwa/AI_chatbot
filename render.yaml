@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: whatsapp-bot-almeera
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server_flask.py
+    healthCheckPath: /
+    envVars:
+      - key: FLASK_DEBUG
+        value: false
+      - key: PORT
+        value: 8080
